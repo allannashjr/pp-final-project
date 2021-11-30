@@ -9,15 +9,15 @@ int MAX_SIZE = 32;
 struct order{
     char item[32];
     double price;
-    char discount[32];
     char User[32];
     int orderNum;
+    int sum;
 };
 
 typedef struct order Order;
 bool loop = true;
 
-void Process_Order(Order *orderArray, int *orderSize, char orderName[10]);
+int Process_Order(Order *orderArray, int *orderSize, char orderName[10]);
 void Print_Order(Order *orderArray, int orderSize);
 
 int main(int argc, char* argv[]) {
@@ -25,6 +25,7 @@ int main(int argc, char* argv[]) {
     char orderName[10];
     int userInput;
     int orderSize = 0;
+    int sum;
     while(loop == true) {
         printf("****************************************************\n");
         printf("\tWelcome to John's and Allan's Shop\n");
@@ -48,7 +49,7 @@ int main(int argc, char* argv[]) {
                 printf("\t\tProcess an Order\n");
 		printf("\tOrder Name: ");
 		scanf("%s", orderName);
-		Process_Order(orderArray, &orderSize, orderName);
+		sum = Process_Order(orderArray, &orderSize, orderName);
                 printf("****************************************************\n");
                 break;
             case 3 : 
@@ -71,39 +72,45 @@ int main(int argc, char* argv[]) {
     return 0;
 }
 
-void Process_Order(Order *orderArray, int *orderSize, char orderName[10]) {
+int Process_Order(Order *orderArray, int *orderSize, char orderName[10]) {
 
      FILE *fin;
      fin = fopen(orderName, "r");
-    
+    int total;
+    total = 0;
     if (fin == NULL) {
 	printf("Cannot open file\n");
     }
-
+// fill order array from file
     else {	
+        // header
 	if (!feof(fin)) {
             fscanf(fin, "Order %d: User: %s\n", &orderArray[(*orderSize)].orderNum, orderArray[(*orderSize)].User);
             printf("\tOrder %d:, User: %s\n", orderArray[(*orderSize)].orderNum, orderArray[(*orderSize)].User);
         }
 
+        // order contents
 	while (!feof(fin)) {
-	    if (fscanf(fin, "%s $%lf Discount: %s", orderArray[(*orderSize)].item, &orderArray[(*orderSize)].price, orderArray[(*orderSize)].discount) == 3) {
-            	printf("\tItem %d: %s, Price: $%0.2f, Discount: %s \n", (*orderSize), orderArray[(*orderSize)].item, orderArray[(*orderSize)].price, orderArray[(*orderSize)].discount);
-            	(*orderSize)++;
-            } 
-		
-	    else {
-            	printf("End of Order\n");
+	    if (fscanf(fin, "%s $%lf", orderArray[(*orderSize)].item, &orderArray[(*orderSize)].price) == 2) {
+            	printf("\tItem %d: %s, Price: $%0.2f\n", (*orderSize), orderArray[(*orderSize)].item, orderArray[(*orderSize)].price);
+            	total += orderArray[(*orderSize)].price;
+                (*orderSize)++;
             }
     	}
     }
-
-    fclose(fin);	
+    orderArray[(*orderSize)].sum = total;
+    printf("\tTotal: $%d\n", orderArray[(*orderSize)].sum);
+    fclose(fin);
+    return orderArray[(*orderSize)].sum;
 }
 
 void Print_Order(Order *orderArray, int orderSize) {
+    int total;
+    total = 0;
     for (int i = 0; i < orderSize; i++) {
     	Order *o = &orderArray[i];
-    	printf("\tItem %d: %s %f Discount: %s\n", i, o->item, o->price, o->discount);
+    	printf("\tItem %d: %s Price: $%0.2f\n", i, o->item, o->price);
+        total += o->price;
     }
+    printf("\tTotal: $%d\n", total);
 }
