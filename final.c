@@ -3,6 +3,7 @@
 #include <time.h>
 #include <omp.h>
 #include <stdbool.h>
+#include <string.h>
 
 int MAX_SIZE = 32;
 struct order{
@@ -16,11 +17,12 @@ struct order{
 typedef struct order Order;
 bool loop = true;
 
-void Process_Order(Order *orderArray, int *orderSize);
+void Process_Order(Order *orderArray, int *orderSize, char orderName[10]);
 void Print_Order(Order *orderArray, int orderSize);
 
 int main(int argc, char* argv[]) {
     Order *orderArray = (Order*)malloc(1000*sizeof(Order));
+    char orderName[10];
     int userInput;
     int orderSize = 0;
     while(loop == true) {
@@ -44,12 +46,14 @@ int main(int argc, char* argv[]) {
                 break;
             case 2 : 
                 printf("\t\tProcess an Order\n");
-				Process_Order(orderArray, &orderSize);
+		printf("\tOrder Name: ");
+		scanf("%s", orderName);
+		Process_Order(orderArray, &orderSize, orderName);
                 printf("****************************************************\n");
                 break;
             case 3 : 
                	printf("\t\tPrinting Order\n");
-				Print_Order(orderArray, orderSize);
+		Print_Order(orderArray, orderSize);
     		printf("****************************************************\n");
                 break;
             case 4 : 
@@ -67,40 +71,39 @@ int main(int argc, char* argv[]) {
     return 0;
 }
 
-void Process_Order(Order *orderArray, int *orderSize) {
+void Process_Order(Order *orderArray, int *orderSize, char orderName[10]) {
 
-	FILE *fin;
-    fin = fopen("order.txt", "r");
+     FILE *fin;
+     fin = fopen(orderName, "r");
     
-	if (fin == NULL) {
-		printf("Cannot open file\n");
+    if (fin == NULL) {
+	printf("Cannot open file\n");
     }
 
-	else {	
-		if (!feof(fin)) {
-        	fscanf(fin, "Order %d: User: %s\n", &orderArray[(*orderSize)].orderNum, orderArray[(*orderSize)].User);
+    else {	
+	if (!feof(fin)) {
+            fscanf(fin, "Order %d: User: %s\n", &orderArray[(*orderSize)].orderNum, orderArray[(*orderSize)].User);
             printf("\tOrder %d:, User: %s\n", orderArray[(*orderSize)].orderNum, orderArray[(*orderSize)].User);
         }
 
-        while (!feof(fin)) {
-		    if (fscanf(fin, "%s $%lf Discount: %s", orderArray[(*orderSize)].item, &orderArray[(*orderSize)].price, orderArray[(*orderSize)].discount) == 3) {
-               printf("\tItem %d: %s Price: $%0.2f Discount: %s \n", (*orderSize), orderArray[(*orderSize)].item, orderArray[(*orderSize)].price, orderArray[(*orderSize)].discount);
-               (*orderSize)++;
+	while (!feof(fin)) {
+	    if (fscanf(fin, "%s $%lf Discount: %s", orderArray[(*orderSize)].item, &orderArray[(*orderSize)].price, orderArray[(*orderSize)].discount) == 3) {
+            	printf("\tItem %d: %s, Price: $%0.2f, Discount: %s \n", (*orderSize), orderArray[(*orderSize)].item, orderArray[(*orderSize)].price, orderArray[(*orderSize)].discount);
+            	(*orderSize)++;
             } 
-			
-			else {
+		
+	    else {
             	printf("End of Order\n");
             }
-		}
-	}
+    	}
+    }
 
-	fclose(fin);	
+    fclose(fin);	
 }
 
 void Print_Order(Order *orderArray, int orderSize) {
-	
-	for (int i = 0; i < orderSize; i++) {
+    for (int i = 0; i < orderSize; i++) {
     	Order *o = &orderArray[i];
     	printf("\tItem %d: %s %f Discount: %s\n", i, o->item, o->price, o->discount);
-   	}
+    }
 }
