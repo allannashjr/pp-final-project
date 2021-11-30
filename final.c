@@ -16,14 +16,13 @@ struct order{
 typedef struct order Order;
 bool loop = true;
 
-//int Read_Order(const char *filename, Order *orderArray);
-//void Print_Order(Order *orderArray, int orderSize);
+void Process_Order(Order *orderArray, int *orderSize);
+void Print_Order(Order *orderArray, int orderSize);
 
 int main(int argc, char* argv[]) {
     Order *orderArray = (Order*)malloc(1000*sizeof(Order));
     int userInput;
-    int orderSize;
-    int i = 0;
+    int orderSize = 0;
     while(loop == true) {
         printf("****************************************************\n");
         printf("\tWelcome to John's and Allan's Shop\n");
@@ -45,49 +44,13 @@ int main(int argc, char* argv[]) {
                 break;
             case 2 : 
                 printf("\t\tProcess an Order\n");
-                FILE *fin;
-                fin = fopen("order.txt", "r");
-                if (fin == NULL) {
-                    printf("Cannot open file\n");
-                    break;
-                }
-    		if (!feof(fin)) {
-                fscanf(fin, "Order %d: User: %s\n", &orderArray[i].orderNum, orderArray[i].User);
-                printf("Order %d:, User: %s\n", orderArray[i].orderNum, orderArray[i].User);
-                };
-                //fscanf(fin, "%*[^\n]\n");
-                while (!feof(fin)) {
-    		    if (fscanf(fin, "%s $%lf Discount: %s",
-                        orderArray[i].item,
-            	        &orderArray[i].price,
-            	        orderArray[i].discount) == 3) {
-                        printf("Item %d: %s Price: $%0.2f Discount: %s \n",
-                            i,
-                            orderArray[i].item,
-                            orderArray[i].price,
-                            orderArray[i].discount);
-                        i++;
-                    } else {
-                        printf("End of Order\n");
-                        break;
-                    };
-                };
-    	        fclose(fin);
-    		orderSize = i;
+				Process_Order(orderArray, &orderSize);
                 printf("****************************************************\n");
                 break;
             case 3 : 
-                printf("\t\tView All Items\n");
-    		printf("Printing Order\n");
-    		/*for (int i = 0; i < orderSize; i++) {
-        		Order *o = &orderArray[i];
-        		printf("Item %d: %s %d Discount: %s\n",
-            		    i,
-                            o->item,
-            		    o->price,
-                            o->discount);
-                }*/
-                printf("****************************************************\n");
+               	printf("\t\tPrinting Order\n");
+				Print_Order(orderArray, orderSize);
+    		printf("****************************************************\n");
                 break;
             case 4 : 
                 printf("\t\tView Past Orders\n");
@@ -100,5 +63,44 @@ int main(int argc, char* argv[]) {
                 break;
     	}
     }
+
     return 0;
+}
+
+void Process_Order(Order *orderArray, int *orderSize) {
+
+	FILE *fin;
+    fin = fopen("order.txt", "r");
+    
+	if (fin == NULL) {
+		printf("Cannot open file\n");
+    }
+
+	else {	
+		if (!feof(fin)) {
+        	fscanf(fin, "Order %d: User: %s\n", &orderArray[(*orderSize)].orderNum, orderArray[(*orderSize)].User);
+            printf("\tOrder %d:, User: %s\n", orderArray[(*orderSize)].orderNum, orderArray[(*orderSize)].User);
+        }
+
+        while (!feof(fin)) {
+		    if (fscanf(fin, "%s $%lf Discount: %s", orderArray[(*orderSize)].item, &orderArray[(*orderSize)].price, orderArray[(*orderSize)].discount) == 3) {
+               printf("\tItem %d: %s Price: $%0.2f Discount: %s \n", (*orderSize), orderArray[(*orderSize)].item, orderArray[(*orderSize)].price, orderArray[(*orderSize)].discount);
+               (*orderSize)++;
+            } 
+			
+			else {
+            	printf("End of Order\n");
+            }
+		}
+	}
+
+	fclose(fin);	
+}
+
+void Print_Order(Order *orderArray, int orderSize) {
+	
+	for (int i = 0; i < orderSize; i++) {
+    	Order *o = &orderArray[i];
+    	printf("\tItem %d: %s %f Discount: %s\n", i, o->item, o->price, o->discount);
+   	}
 }
