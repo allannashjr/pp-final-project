@@ -9,6 +9,8 @@ struct order{
     char item[32];
     double price;
     char discount[32];
+    char User[32];
+    int orderNum;
 };
 
 typedef struct order Order;
@@ -49,22 +51,26 @@ int main(int argc, char* argv[]) {
                     printf("Cannot open file\n");
                     break;
                 }
-    		while (!feof(fin)) {
-                printf("Scanning item %d\n", i);
-    		if (fscanf(fin, "%s $%lf Discount: %s",
-                    orderArray[i].item,
-            	    &orderArray[i].price,
-            	    orderArray[i].discount) == 3) {
-                    printf("Item %d: %s Price: $%0.2f Discount: %s \n",
+    		if (!feof(fin)) {
+                fscanf(fin, "Order %d: User: %s\n", &orderArray[i].orderNum, orderArray[i].User);
+                printf("Order %d:, User: %s\n", orderArray[i].orderNum, orderArray[i].User);
+                };
+                //fscanf(fin, "%*[^\n]\n");
+                while (!feof(fin)) {
+    		    if (fscanf(fin, "%s $%lf Discount: %s",
+                        orderArray[i].item,
+            	        &orderArray[i].price,
+            	        orderArray[i].discount) == 3) {
+                        printf("Item %d: %s Price: $%0.2f Discount: %s \n",
                             i,
                             orderArray[i].item,
                             orderArray[i].price,
                             orderArray[i].discount);
-                   i++;
-                } else {
-                            printf("End of Order\n");
-                            break;
-                };
+                        i++;
+                    } else {
+                        printf("End of Order\n");
+                        break;
+                    };
                 };
     	        fclose(fin);
     		orderSize = i;
