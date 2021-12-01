@@ -154,7 +154,7 @@ void Print_Order(Order *orderArray, int orderSize, char orderName[256], int my_r
         // header
         if (!feof(fin)) {
             fscanf(fin, "Order %d: User: %s\n", &orderArray[orderSize].orderNum, orderArray[orderSize].User);
-            printf("\tStarting Process %d: Order %d:, User: %s\n", my_rank, orderArray[orderSize].orderNum, orderArray[orderSize].User);
+            //printf("\tStarting Process %d: Order %d:, User: %s\n", my_rank, orderArray[orderSize].orderNum, orderArray[orderSize].User);
         }
 
         // order contents
