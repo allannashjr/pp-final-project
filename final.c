@@ -18,7 +18,7 @@ typedef struct order Order;
 bool loop = true;
 
 int Process_Order(Order *orderArray, int orderSize, char orderName[10], int my_rank, int comm_sz);
-void Print_Order(Order *orderArray, int orderSize, int my_rank, int comm_sz);
+void Print_Order(Order *orderArray, int orderSize, char orderName[256], int my_rank, int comm_sz);
 
 int main(int argc, char* argv[]) {
     char orderName[256];
@@ -51,11 +51,11 @@ int main(int argc, char* argv[]) {
         my_rank = omp_get_thread_num();
 
     	switch(userInput) {
-            case 1 : 
+            case 1 :
                 printf("\tSearch for User\n");
             	printf("****************************************************\n");
                 break;
-            case 2 : 
+            case 2 :
                     switch(my_rank) {
                         case 0:
                                   strcpy(orderName, "order.txt");
@@ -71,16 +71,26 @@ int main(int argc, char* argv[]) {
                     printf("****************************************************\n");
                 }
                 break;
-            case 3 : 
-               	printf("\t\tPrinting Order\n");
-		//Print_Order(orderArray, orderSize, my_rank, comm_sz);
+            case 3 :
+                if (my_rank == 0) {
+               		printf("\t\tPrinting Order\n");
+				}
+                switch(my_rank) {
+                        case 0:
+                                  strcpy(orderName, "order.txt");
+                                  break;
+                        case 1:
+                                  strcpy(orderName, "groceries.txt");
+                                  break;
+                    }
+                Print_Order(orderArray, orderSize, orderName, my_rank, comm_sz);
     		printf("****************************************************\n");
                 break;
-            case 4 : 
+            case 4 :
                 printf("\t\tView Past Orders\n");
                 printf("****************************************************\n");
                 break;
-            case 5 : 
+            case 5 :
                 free(orderArray);
                 loop = false;
                 break;
@@ -98,39 +108,64 @@ int Process_Order(Order *orderArray, int orderSize, char orderName[256], int my_
     fin = fopen(orderName, "r");
     int total;
     total = 0;
+
     if (fin == NULL) {
-	printf("Cannot open file\n");
+        printf("Cannot open file\n");
     }
-// fill order array from file
-    else {	
+    // fill order array from file
+    else {
         // header
-	if (!feof(fin)) {
+        if (!feof(fin)) {
             fscanf(fin, "Order %d: User: %s\n", &orderArray[orderSize].orderNum, orderArray[orderSize].User);
             printf("\tStarting Process %d: Order %d:, User: %s\n", my_rank, orderArray[orderSize].orderNum, orderArray[orderSize].User);
         }
 
         // order contents
-	while (!feof(fin)) {
-	    if (fscanf(fin, "%s $%lf", orderArray[orderSize].item, &orderArray[orderSize].price) == 2) {
-            	printf("\tItem %d: %s, Price: $%0.2f\n", (orderSize), orderArray[orderSize].item, orderArray[orderSize].price);
-            	total += orderArray[orderSize].price;
+        while (!feof(fin)) {
+            if (fscanf(fin, "%s $%lf", orderArray[orderSize].item, &orderArray[orderSize].price) == 2) {
+                printf("\tItem %d: %s, Price: $%0.2f\n", (orderSize), orderArray[orderSize].item, orderArray[orderSize].price);
+                total += orderArray[orderSize].price;
                 orderSize++;
             }
-    	}
+        }
     }
+
     orderArray[orderSize].sum = total;
-    printf("\tEnding Process %d: Order: %d, Total: $%d\n", my_rank, orderArray[0].orderNum, orderArray[orderSize].sum);
+    printf("\tEnding Process %d: Order: %d, Total: $%d\n\n", my_rank, orderArray[0].orderNum, orderArray[orderSize].sum);
     fclose(fin);
+
     return total;
 }
 
-void Print_Order(Order *orderArray, int orderSize, int my_rank, int comm_sz) {
-    int total;
-    total = 0;
-    for (int i = 0; i < orderSize; i++) {
-    	Order *o = &orderArray[i];
-    	printf("\tItem %d: %s Price: $%0.2f\n", i, o->item, o->price);
-        total += o->price;
+void Print_Order(Order *orderArray, int orderSize, char orderName[256], int my_rank, int comm_sz) {
+
+    FILE *fin;
+    fin = fopen(orderName, "r");
+
+    int total = 0;
+
+    // File is Empty or Invalid
+    if (fin == NULL) {
+        printf("Cannot open file\n");
     }
-    printf("\tProcess %d, Total: $%d\n", my_rank, total);
+
+    // File is Valid
+    else {
+        // header
+        if (!feof(fin)) {
+            fscanf(fin, "Order %d: User: %s\n", &orderArray[orderSize].orderNum, orderArray[orderSize].User);
+            printf("\tStarting Process %d: Order %d:, User: %s\n", my_rank, orderArray[orderSize].orderNum, orderArray[orderSize].User);
+        }
+
+        // order contents
+        while (!feof(fin)) {
+            if (fscanf(fin, "%s $%lf", orderArray[orderSize].item, &orderArray[orderSize].price) == 2) {
+                printf("\tItem %d: %s, Price: $%0.2f\n", (orderSize), orderArray[orderSize].item, orderArray[orderSize].price);
+                total += orderArray[orderSize].price;
+                orderSize++;
+            }
+        }
+    }
+
+    fclose(fin);
 }

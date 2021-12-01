@@ -1,15 +1,30 @@
 Order 2: User: Tom
-Water $5 Discount: Y
-Milk $2 Discount: N
-Grapes $3 Discount: N
-Bread $3 Discount: N
-Beer $5 Discount: Y
-Popsicles $6 Discount: N
-Pizza $7 Discount: N
-Steak $8 Discount: N
-Cheese $4 Discount: N
-Gatorade $3 Discount: N
-Coffee $5 Discount: Y
-Pasta $6 Discount: Y
-CrockPot $50 Discount: Y
-Microwave $100 Discount: Y
+Milk $3
+Water $5
+Juice $4
+Cola $5
+Gatorade $3
+Powerade $2
+Beer $6
+Wine $7
+Coffee $4
+Tea $4
+Bread $3
+Buns $4
+Rolls $5
+Peanut Butter $4
+Jelly $5
+Mustard $3
+Ketchup $2
+Mayonaise $3
+Ranch $2
+Lemon $1
+Lime $1
+Banana $2
+Apple $2
+Orange $3
+Watermelon $6
+Tomato $3
+Pumpkin $5
+Squash $4
+Corn $3
