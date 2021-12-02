@@ -142,8 +142,6 @@ void Print_Order(Order *orderArray, int orderSize, char orderName[256], int my_r
     FILE *fin;
     fin = fopen(orderName, "r");
 
-    int total = 0;
-
     // File is Empty or Invalid
     if (fin == NULL) {
         printf("Cannot open file\n");
@@ -161,7 +159,6 @@ void Print_Order(Order *orderArray, int orderSize, char orderName[256], int my_r
         while (!feof(fin)) {
             if (fscanf(fin, "%s $%lf", orderArray[orderSize].item, &orderArray[orderSize].price) == 2) {
                 printf("\tItem %d: %s, Price: $%0.2f\n", (orderSize), orderArray[orderSize].item, orderArray[orderSize].price);
-                total += orderArray[orderSize].price;
                 orderSize++;
             }
         }
