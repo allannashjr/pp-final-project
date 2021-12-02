@@ -75,12 +75,13 @@ int main(int argc, char* argv[]) {
                 }
                 break;
             case 3 :
-                omp_set_lock(&mutex);
-                my_rank = omp_get_thread_num();
-                if (my_rank == 0) {
+                #pragma omp critical (orderName)
+                {
+                    my_rank = omp_get_thread_num();
+                    if (my_rank == 0) {
                		printf("\t\tPrinting Order\n");
-				}
-                switch(my_rank) {
+	            }
+                    switch(my_rank) {
                         case 0:
                                   strcpy(orderName, "order.txt");
                                   break;
@@ -91,11 +92,9 @@ int main(int argc, char* argv[]) {
                                   strcpy(orderName, "grocery.txt");
                                   break;
                     }
-                //omp_set_lock(&mutex);
                 Print_Order(orderArray, orderSize, orderName, my_rank, comm_sz);
-                omp_unset_lock(&mutex);
                 printf("****************************************************\n");
-                omp_unset_lock(&mutex);
+                }
                 break;
             case 4 :
                 printf("\t\tView Past Orders\n");
