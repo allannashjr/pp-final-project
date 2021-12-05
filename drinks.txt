@@ -1,10 +1,11 @@
+Order 8: User: Drinks
 Vodka	$10
 Brandy	$15
 Beer	$10
 Wine	$15
 Bourbon	$10
 Whiskey	$15
-Tequilla	$10
+Tequilla $10
 Mezcal	$15
 Rum	$10
 Gin	$15
@@ -14,7 +15,7 @@ Beer	$14
 Wine	$14
 Bourbon	$14
 Whiskey	$14
-Tequilla	$14
+Tequilla $14
 Mezcal	$14
 Rum	$15
 Gin	$15
@@ -24,7 +25,7 @@ Beer	$15
 Wine	$15
 Bourbon	$15
 Whiskey	$16
-Tequilla	$16
+Tequilla $16
 Mezcal	$16
 Rum	$16
 Gin	$16
@@ -34,7 +35,7 @@ Beer	$17
 Wine	$17
 Bourbon	$17
 Whiskey	$17
-Tequilla	$17
+Tequilla $17
 Mezcal	$17
 Rum	$18
 Gin	$18
@@ -44,7 +45,7 @@ Beer	$18
 Wine	$18
 Bourbon	$18
 Whiskey	$19
-Tequilla	$19
+Tequilla $19
 Mezcal	$19
 Rum	$19
 Gin	$19
@@ -54,7 +55,7 @@ Beer	$20
 Wine	$20
 Bourbon	$20
 Whiskey	$20
-Tequilla	$20
+Tequilla $20
 Mezcal	$20
 Rum	$21
 Gin	$21
@@ -64,7 +65,7 @@ Beer	$21
 Wine	$21
 Bourbon	$22
 Whiskey	$22
-Tequilla	$22
+Tequilla $22
 Mezcal	$22
 Rum	$22
 Gin	$22
@@ -74,7 +75,7 @@ Beer	$23
 Wine	$23
 Bourbon	$23
 Whiskey	$23
-Tequilla	$23
+Tequilla $23
 Mezcal	$23
 Rum	$24
 Gin	$24
@@ -84,7 +85,7 @@ Beer	$24
 Wine	$24
 Bourbon	$25
 Whiskey	$25
-Tequilla	$25
+Tequilla $25
 Mezcal	$25
 Rum	$25
 Gin	$25
@@ -94,7 +95,7 @@ Beer	$26
 Wine	$26
 Bourbon	$26
 Whiskey	$26
-Tequilla	$26
+Tequilla $26
 Mezcal	$27
 Rum	$27
 Gin	$27
@@ -104,7 +105,7 @@ Beer	$27
 Wine	$27
 Bourbon	$28
 Whiskey	$28
-Tequilla	$28
+Tequilla $28
 Mezcal	$28
 Rum	$28
 Gin	$28
@@ -114,7 +115,7 @@ Beer	$29
 Wine	$29
 Bourbon	$29
 Whiskey	$29
-Tequilla	$29
+Tequilla $29
 Mezcal	$30
 Rum	$30
 Gin	$30
@@ -124,7 +125,7 @@ Beer	$30
 Wine	$30
 Bourbon	$31
 Whiskey	$31
-Tequilla	$31
+Tequilla $31
 Mezcal	$31
 Rum	$31
 Gin	$31
@@ -134,7 +135,7 @@ Beer	$32
 Wine	$32
 Bourbon	$32
 Whiskey	$32
-Tequilla	$32
+Tequilla $32
 Mezcal	$33
 Rum	$33
 Gin	$33
@@ -144,7 +145,7 @@ Beer	$33
 Wine	$33
 Bourbon	$34
 Whiskey	$34
-Tequilla	$34
+Tequilla $34
 Mezcal	$34
 Rum	$34
 Gin	$34
@@ -154,7 +155,7 @@ Beer	$35
 Wine	$35
 Bourbon	$35
 Whiskey	$35
-Tequilla	$35
+Tequilla $35
 Mezcal	$36
 Rum	$36
 Gin	$36
@@ -164,7 +165,7 @@ Beer	$36
 Wine	$37
 Bourbon	$37
 Whiskey	$37
-Tequilla	$37
+Tequilla $37
 Mezcal	$37
 Rum	$37
 Gin	$37
@@ -174,7 +175,7 @@ Beer	$38
 Wine	$38
 Bourbon	$38
 Whiskey	$38
-Tequilla	$38
+Tequilla $38
 Mezcal	$39
 Rum	$39
 Gin	$39
@@ -184,7 +185,7 @@ Beer	$39
 Wine	$40
 Bourbon	$40
 Whiskey	$40
-Tequilla	$40
+Tequilla $40
 Mezcal	$40
 Rum	$40
 Gin	$40
@@ -194,7 +195,7 @@ Beer	$41
 Wine	$41
 Bourbon	$41
 Whiskey	$41
-Tequilla	$42
+Tequilla $42
 Mezcal	$42
 Rum	$42
 Gin	$42
@@ -204,7 +205,7 @@ Beer	$42
 Wine	$43
 Bourbon	$43
 Whiskey	$43
-Tequilla	$43
+Tequilla $43
 Mezcal	$43
 Rum	$43
 Gin	$43
@@ -214,7 +215,7 @@ Beer	$44
 Wine	$44
 Bourbon	$44
 Whiskey	$44
-Tequilla	$45
+Tequilla $45
 Mezcal	$45
 Rum	$45
 Gin	$45
@@ -224,7 +225,7 @@ Beer	$45
 Wine	$46
 Bourbon	$46
 Whiskey	$46
-Tequilla	$46
+Tequilla $46
 Mezcal	$46
 Rum	$46
 Gin	$47
@@ -234,7 +235,7 @@ Beer	$47
 Wine	$47
 Bourbon	$47
 Whiskey	$47
-Tequilla	$48
+Tequilla $48
 Mezcal	$48
 Rum	$48
 Gin	$48
@@ -244,7 +245,7 @@ Beer	$48
 Wine	$49
 Bourbon	$49
 Whiskey	$49
-Tequilla	$49
+Tequilla $49
 Mezcal	$49
 Rum	$49
 Gin	$50
@@ -254,7 +255,7 @@ Beer	$50
 Wine	$50
 Bourbon	$50
 Whiskey	$50
-Tequilla	$51
+Tequilla $51
 Mezcal	$51
 Rum	$51
 Gin	$51
@@ -264,7 +265,7 @@ Beer	$52
 Wine	$52
 Bourbon	$52
 Whiskey	$52
-Tequilla	$52
+Tequilla $52
 Mezcal	$52
 Rum	$52
 Gin	$53
@@ -274,7 +275,7 @@ Beer	$53
 Wine	$53
 Bourbon	$53
 Whiskey	$53
-Tequilla	$54
+Tequilla $54
 Mezcal	$54
 Rum	$54
 Gin	$54
@@ -284,7 +285,7 @@ Beer	$55
 Wine	$55
 Bourbon	$55
 Whiskey	$55
-Tequilla	$55
+Tequilla $55
 Mezcal	$55
 Rum	$55
 Gin	$56
@@ -294,7 +295,7 @@ Beer	$56
 Wine	$56
 Bourbon	$56
 Whiskey	$57
-Tequilla	$57
+Tequilla $57
 Mezcal	$57
 Rum	$57
 Gin	$57

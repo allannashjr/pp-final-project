@@ -62,22 +62,22 @@ int main(int argc, char* argv[]) {
                                   strcpy(orderName, "groceries.txt");
                                   break;
                         case 2:
-                                  strcpy(orderName, "groceries.txt");
+                                  strcpy(orderName, "graphics.txt");
                                   break;
                         case 3:
-                                  strcpy(orderName, "groceries.txt");
+                                  strcpy(orderName, "sports.txt");
                                   break;
                         case 4:
-                                  strcpy(orderName, "groceries.txt");
+                                  strcpy(orderName, "tires.txt");
                                   break;
                         case 5:
-                                  strcpy(orderName, "groceries.txt");
+                                  strcpy(orderName, "videogames.txt");
                                   break;
                         case 6:
-                                  strcpy(orderName, "groceries.txt");
+                                  strcpy(orderName, "colors.txt");
                                   break;
                         case 7:
-                                  strcpy(orderName, "grocery.txt");
+                                  strcpy(orderName, "drinks.txt");
                                   break;
                     }
 
@@ -96,22 +96,22 @@ int main(int argc, char* argv[]) {
                                   strcpy(orderName, "groceries.txt");
                                   break;
                         case 2:
-                                  strcpy(orderName, "groceries.txt");
+                                  strcpy(orderName, "graphics.txt");
                                   break;
                         case 3:
-                                  strcpy(orderName, "groceries.txt");
+                                  strcpy(orderName, "sports.txt");
                                   break;
                         case 4:
-                                  strcpy(orderName, "groceries.txt");
+                                  strcpy(orderName, "tires.txt");
                                   break;
                         case 5:
-                                  strcpy(orderName, "groceries.txt");
+                                  strcpy(orderName, "videogames.txt");
                                   break;
                         case 6:
-                                  strcpy(orderName, "groceries.txt");
+                                  strcpy(orderName, "colors.txt");
                                   break;
                         case 7:
-                                  strcpy(orderName, "grocery.txt");
+                                  strcpy(orderName, "drinks.txt");
                                   break;
                     }
 
