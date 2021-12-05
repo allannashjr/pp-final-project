@@ -1,0 +1,300 @@
+BFGoodrich	$20
+Bridgestone	$25
+Continental	$30
+Dunlop	$35
+Firestone	$40
+General Tire	$45
+Goodyear	$50
+Hankook	$55
+Michelin	$60
+Pirelli	$65
+BFGoodrich	$70
+Bridgestone	$75
+Continental	$80
+Dunlop	$85
+Firestone	$90
+General Tire	$95
+Goodyear	$100
+Hankook	$105
+Michelin	$110
+Pirelli	$115
+BFGoodrich	$120
+Bridgestone	$125
+Continental	$130
+Dunlop	$135
+Firestone	$140
+General Tire	$145
+Goodyear	$150
+Hankook	$155
+Michelin	$160
+Pirelli	$165
+BFGoodrich	$170
+Bridgestone	$175
+Continental	$180
+Dunlop	$185
+Firestone	$190
+General Tire	$195
+Goodyear	$200
+Hankook	$205
+Michelin	$210
+Pirelli	$215
+BFGoodrich	$220
+Bridgestone	$225
+Continental	$230
+Dunlop	$235
+Firestone	$240
+General Tire	$245
+Goodyear	$250
+Hankook	$255
+Michelin	$260
+Pirelli	$265
+BFGoodrich	$270
+Bridgestone	$275
+Continental	$280
+Dunlop	$285
+Firestone	$290
+General Tire	$295
+Goodyear	$300
+Hankook	$305
+Michelin	$310
+Pirelli	$315
+BFGoodrich	$320
+Bridgestone	$325
+Continental	$330
+Dunlop	$335
+Firestone	$340
+General Tire	$345
+Goodyear	$350
+Hankook	$355
+Michelin	$360
+Pirelli	$365
+BFGoodrich	$370
+Bridgestone	$375
+Continental	$380
+Dunlop	$385
+Firestone	$390
+General Tire	$395
+Goodyear	$400
+Hankook	$405
+Michelin	$410
+Pirelli	$415
+BFGoodrich	$420
+Bridgestone	$425
+Continental	$430
+Dunlop	$435
+Firestone	$440
+General Tire	$445
+Goodyear	$450
+Hankook	$455
+Michelin	$460
+Pirelli	$465
+BFGoodrich	$470
+Bridgestone	$475
+Continental	$480
+Dunlop	$485
+Firestone	$490
+General Tire	$495
+Goodyear	$500
+Hankook	$505
+Michelin	$510
+Pirelli	$515
+BFGoodrich	$520
+Bridgestone	$525
+Continental	$530
+Dunlop	$535
+Firestone	$540
+General Tire	$545
+Goodyear	$550
+Hankook	$555
+Michelin	$560
+Pirelli	$565
+BFGoodrich	$570
+Bridgestone	$575
+Continental	$580
+Dunlop	$585
+Firestone	$590
+General Tire	$595
+Goodyear	$600
+Hankook	$605
+Michelin	$610
+Pirelli	$615
+BFGoodrich	$620
+Bridgestone	$625
+Continental	$630
+Dunlop	$635
+Firestone	$640
+General Tire	$645
+Goodyear	$650
+Hankook	$655
+Michelin	$660
+Pirelli	$665
+BFGoodrich	$670
+Bridgestone	$675
+Continental	$680
+Dunlop	$685
+Firestone	$690
+General Tire	$695
+Goodyear	$700
+Hankook	$705
+Michelin	$710
+Pirelli	$715
+BFGoodrich	$720
+Bridgestone	$725
+Continental	$730
+Dunlop	$735
+Firestone	$740
+General Tire	$745
+Goodyear	$750
+Hankook	$755
+Michelin	$760
+Pirelli	$765
+BFGoodrich	$770
+Bridgestone	$775
+Continental	$780
+Dunlop	$785
+Firestone	$790
+General Tire	$795
+Goodyear	$800
+Hankook	$805
+Michelin	$810
+Pirelli	$815
+BFGoodrich	$820
+Bridgestone	$825
+Continental	$830
+Dunlop	$835
+Firestone	$840
+General Tire	$845
+Goodyear	$850
+Hankook	$855
+Michelin	$860
+Pirelli	$865
+BFGoodrich	$870
+Bridgestone	$875
+Continental	$880
+Dunlop	$885
+Firestone	$890
+General Tire	$895
+Goodyear	$900
+Hankook	$905
+Michelin	$910
+Pirelli	$915
+BFGoodrich	$920
+Bridgestone	$925
+Continental	$930
+Dunlop	$935
+Firestone	$940
+General Tire	$945
+Goodyear	$950
+Hankook	$955
+Michelin	$960
+Pirelli	$965
+BFGoodrich	$970
+Bridgestone	$975
+Continental	$980
+Dunlop	$985
+Firestone	$990
+General Tire	$995
+Goodyear	$1,000
+Hankook	$1,005
+Michelin	$1,010
+Pirelli	$1,015
+BFGoodrich	$1,020
+Bridgestone	$1,025
+Continental	$1,030
+Dunlop	$1,035
+Firestone	$1,040
+General Tire	$1,045
+Goodyear	$1,050
+Hankook	$1,055
+Michelin	$1,060
+Pirelli	$1,065
+BFGoodrich	$1,070
+Bridgestone	$1,075
+Continental	$1,080
+Dunlop	$1,085
+Firestone	$1,090
+General Tire	$1,095
+Goodyear	$1,100
+Hankook	$1,105
+Michelin	$1,110
+Pirelli	$1,115
+BFGoodrich	$1,120
+Bridgestone	$1,125
+Continental	$1,130
+Dunlop	$1,135
+Firestone	$1,140
+General Tire	$1,145
+Goodyear	$1,150
+Hankook	$1,155
+Michelin	$1,160
+Pirelli	$1,165
+BFGoodrich	$1,170
+Bridgestone	$1,175
+Continental	$1,180
+Dunlop	$1,185
+Firestone	$1,190
+General Tire	$1,195
+Goodyear	$1,200
+Hankook	$1,205
+Michelin	$1,210
+Pirelli	$1,215
+BFGoodrich	$1,220
+Bridgestone	$1,225
+Continental	$1,230
+Dunlop	$1,235
+Firestone	$1,240
+General Tire	$1,245
+Goodyear	$1,250
+Hankook	$1,255
+Michelin	$1,260
+Pirelli	$1,265
+BFGoodrich	$1,270
+Bridgestone	$1,275
+Continental	$1,280
+Dunlop	$1,285
+Firestone	$1,290
+General Tire	$1,295
+Goodyear	$1,300
+Hankook	$1,305
+Michelin	$1,310
+Pirelli	$1,315
+BFGoodrich	$1,320
+Bridgestone	$1,325
+Continental	$1,330
+Dunlop	$1,335
+Firestone	$1,340
+General Tire	$1,345
+Goodyear	$1,350
+Hankook	$1,355
+Michelin	$1,360
+Pirelli	$1,365
+BFGoodrich	$1,370
+Bridgestone	$1,375
+Continental	$1,380
+Dunlop	$1,385
+Firestone	$1,390
+General Tire	$1,395
+Goodyear	$1,400
+Hankook	$1,405
+Michelin	$1,410
+Pirelli	$1,415
+BFGoodrich	$1,420
+Bridgestone	$1,425
+Continental	$1,430
+Dunlop	$1,435
+Firestone	$1,440
+General Tire	$1,445
+Goodyear	$1,450
+Hankook	$1,455
+Michelin	$1,460
+Pirelli	$1,465
+BFGoodrich	$1,470
+Bridgestone	$1,475
+Continental	$1,480
+Dunlop	$1,485
+Firestone	$1,490
+General Tire	$1,495
+Goodyear	$1,500
+Hankook	$1,505
+Michelin	$1,510
+Pirelli	$1,515

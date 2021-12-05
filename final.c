@@ -26,7 +26,9 @@ int main(int argc, char* argv[]) {
     int orderSize = 0;
     int sum;
     int my_rank;
-    int comm_sz = 2;
+    int comm_sz = 3;
+    omp_lock_t mutex;
+    omp_init_lock(&mutex);
     srand(time(0));
 
     while(loop == true) {
@@ -46,10 +48,12 @@ int main(int argc, char* argv[]) {
         #pragma omp parallel
         {
         Order *orderArray = (Order*)malloc(10000*sizeof(Order));
-        my_rank = omp_get_thread_num();
 
     	switch(userInput) {
             case 1 :
+                #pragma omp critical (orderName)
+                {
+                    my_rank = omp_get_thread_num();
                     switch(my_rank) {
                         case 0:
                                   strcpy(orderName, "order.txt");
@@ -73,30 +77,46 @@ int main(int argc, char* argv[]) {
                                   strcpy(orderName, "groceries.txt");
                                   break;
                         case 7:
-                                  strcpy(orderName, "groceries.txt");
+                                  strcpy(orderName, "grocery.txt");
                                   break;
                     }
-		    sum = Process_Order(orderArray, orderSize, orderName, my_rank, comm_sz);
 
-                if (my_rank == 0) {
-                    sleep(0.01);
-                    printf("****************************************************\n");
+                    sum = Process_Order(orderArray, orderSize, orderName, my_rank, comm_sz);
                 }
                 break;
             case 2 :
-                if (my_rank == 0) {
-               		printf("\t\tPrinting Order\n");
-				}
-                switch(my_rank) {
+                #pragma omp critical (orderName)
+                {
+                    my_rank = omp_get_thread_num();
+                    switch(my_rank) {
                         case 0:
                                   strcpy(orderName, "order.txt");
                                   break;
                         case 1:
                                   strcpy(orderName, "groceries.txt");
                                   break;
+                        case 2:
+                                  strcpy(orderName, "groceries.txt");
+                                  break;
+                        case 3:
+                                  strcpy(orderName, "groceries.txt");
+                                  break;
+                        case 4:
+                                  strcpy(orderName, "groceries.txt");
+                                  break;
+                        case 5:
+                                  strcpy(orderName, "groceries.txt");
+                                  break;
+                        case 6:
+                                  strcpy(orderName, "groceries.txt");
+                                  break;
+                        case 7:
+                                  strcpy(orderName, "grocery.txt");
+                                  break;
                     }
-                Print_Order(orderArray, orderSize, orderName, my_rank, comm_sz);
-    		printf("****************************************************\n");
+
+                    Print_Order(orderArray, orderSize, orderName, my_rank, comm_sz);
+                }
                 break;
             case 3 :
                 free(orderArray);
@@ -107,6 +127,7 @@ int main(int argc, char* argv[]) {
     }
     printf("\t\tClosing, Thank you!\n");
     printf("****************************************************\n");
+    omp_destroy_lock(&mutex);
     return 0;
 }
 
@@ -150,8 +171,6 @@ void Print_Order(Order *orderArray, int orderSize, char orderName[256], int my_r
     FILE *fin;
     fin = fopen(orderName, "r");
 
-    int total = 0;
-
     // File is Empty or Invalid
     if (fin == NULL) {
         printf("Cannot open file\n");
@@ -169,7 +188,6 @@ void Print_Order(Order *orderArray, int orderSize, char orderName[256], int my_r
         while (!feof(fin)) {
             if (fscanf(fin, "%s $%lf", orderArray[orderSize].item, &orderArray[orderSize].price) == 2) {
                 printf("\tItem %d: %s, Price: $%0.2f\n", (orderSize), orderArray[orderSize].item, orderArray[orderSize].price);
-                total += orderArray[orderSize].price;
                 orderSize++;
             }
         }
