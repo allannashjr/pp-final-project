@@ -33,11 +33,9 @@ int main(int argc, char* argv[]) {
         printf("****************************************************\n");
         printf("\tWelcome to John's and Allan's Shop\n");
         printf("****************************************************\n");
-        printf("\t\t1) Search for User\n");
-        printf("\t\t2) Process an Order\n");
-        printf("\t\t3) View All Items\n");
-        printf("\t\t4) View Past Orders\n");
-        printf("\t\t5) Exit\n");
+        printf("\t\t1) Process an Order\n");
+        printf("\t\t2) View All Items\n");
+        printf("\t\t3) Exit\n");
         printf("****************************************************\n");
 
         printf("\t\tSelection - ");
@@ -52,15 +50,29 @@ int main(int argc, char* argv[]) {
 
     	switch(userInput) {
             case 1 :
-                printf("\tSearch for User\n");
-            	printf("****************************************************\n");
-                break;
-            case 2 :
                     switch(my_rank) {
                         case 0:
                                   strcpy(orderName, "order.txt");
                                   break;
                         case 1:
+                                  strcpy(orderName, "groceries.txt");
+                                  break;
+                        case 2:
+                                  strcpy(orderName, "groceries.txt");
+                                  break;
+                        case 3:
+                                  strcpy(orderName, "groceries.txt");
+                                  break;
+                        case 4:
+                                  strcpy(orderName, "groceries.txt");
+                                  break;
+                        case 5:
+                                  strcpy(orderName, "groceries.txt");
+                                  break;
+                        case 6:
+                                  strcpy(orderName, "groceries.txt");
+                                  break;
+                        case 7:
                                   strcpy(orderName, "groceries.txt");
                                   break;
                     }
@@ -71,7 +83,7 @@ int main(int argc, char* argv[]) {
                     printf("****************************************************\n");
                 }
                 break;
-            case 3 :
+            case 2 :
                 if (my_rank == 0) {
                		printf("\t\tPrinting Order\n");
 				}
@@ -86,11 +98,7 @@ int main(int argc, char* argv[]) {
                 Print_Order(orderArray, orderSize, orderName, my_rank, comm_sz);
     		printf("****************************************************\n");
                 break;
-            case 4 :
-                printf("\t\tView Past Orders\n");
-                printf("****************************************************\n");
-                break;
-            case 5 :
+            case 3 :
                 free(orderArray);
                 loop = false;
                 break;
