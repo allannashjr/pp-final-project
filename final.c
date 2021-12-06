@@ -137,7 +137,7 @@ int Process_Order(Order *orderArray, int orderSize, char orderName[256], int my_
     fin = fopen(orderName, "r");
     int total;
     total = 0;
-
+    clock_t begin = clock();
     if (fin == NULL) {
         printf("Cannot open file\n");
     }
@@ -152,7 +152,7 @@ int Process_Order(Order *orderArray, int orderSize, char orderName[256], int my_
         // order contents
         while (!feof(fin)) {
             if (fscanf(fin, "%s $%lf", orderArray[orderSize].item, &orderArray[orderSize].price) == 2) {
-                printf("\tItem %d: %s, Price: $%0.2f\n", (orderSize), orderArray[orderSize].item, orderArray[orderSize].price);
+                //printf("\tItem %d: %s, Price: $%0.2f\n", (orderSize), orderArray[orderSize].item, orderArray[orderSize].price);
                 total += orderArray[orderSize].price;
                 orderSize++;
             }
@@ -160,7 +160,9 @@ int Process_Order(Order *orderArray, int orderSize, char orderName[256], int my_
     }
 
     orderArray[orderSize].sum = total;
-    printf("\tEnding Process %d: Order: %d, Total: $%d\n\n", my_rank, orderArray[0].orderNum, orderArray[orderSize].sum);
+    clock_t end = clock();
+    double runtime = (double)(end - begin) / CLOCKS_PER_SEC;
+    printf("\tEnding Process %d: Order: %d, Total: $%d, Time: %f\n\n", my_rank, orderArray[0].orderNum, orderArray[orderSize].sum, runtime);
     fclose(fin);
 
     return total;
