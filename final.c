@@ -48,9 +48,9 @@ int main(int argc, char* argv[]) {
         #pragma omp parallel
         {
         Order *orderArray = (Order*)malloc(10000*sizeof(Order));
-
     	switch(userInput) {
-            case 1 :
+            case 1 : ;
+                clock_t begin = clock();
                 #pragma omp critical (orderName)
                 {
                     my_rank = omp_get_thread_num();
@@ -83,6 +83,9 @@ int main(int argc, char* argv[]) {
 
                     sum = Process_Order(orderArray, orderSize, orderName, my_rank, comm_sz);
                 }
+                clock_t end = clock();
+                double runtime = (double)(end - begin) / CLOCKS_PER_SEC;
+                printf("Total Runtime: %f\n", runtime);
                 break;
             case 2 :
                 #pragma omp critical (orderName)
@@ -137,7 +140,6 @@ int Process_Order(Order *orderArray, int orderSize, char orderName[256], int my_
     fin = fopen(orderName, "r");
     int total;
     total = 0;
-    clock_t begin = clock();
     if (fin == NULL) {
         printf("Cannot open file\n");
     }
@@ -160,9 +162,7 @@ int Process_Order(Order *orderArray, int orderSize, char orderName[256], int my_
     }
 
     orderArray[orderSize].sum = total;
-    clock_t end = clock();
-    double runtime = (double)(end - begin) / CLOCKS_PER_SEC;
-    printf("\tEnding Process %d: Order: %d, Total: $%d, Time: %f\n\n", my_rank, orderArray[0].orderNum, orderArray[orderSize].sum, runtime);
+    printf("\tEnding Process %d: Order: %d, Total: $%d\n\n", my_rank, orderArray[0].orderNum, orderArray[orderSize].sum);
     fclose(fin);
 
     return total;
