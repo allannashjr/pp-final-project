@@ -1,0 +1,63 @@
+John Jeffery
+Allan Nash
+Final results
+Program has weak scalability and has strong, inverse scalability
+1 order (300 items)
+Processors  Time
+1           0.00014
+
+2 orders  (600 items)
+Processors  Time      Speedup  Efficiency
+1           0.000218  
+2           0.000377  0.578    28.91%
+
+3 orders  (900 items)
+Processors  Time      Speedup  Efficiency
+1           0.000301
+2           0.000823  0.366    18.28%
+3           0.001208  0.249    8.31%
+
+4 orders  (1200 items)
+Processors  Time      Speedup  Efficiency
+1           0.000354
+2           0.000790  0.448    22.41%
+3           0.000980  0.361    12.04%
+4           0.001816  0.195    4.87%
+
+5 orders  (1500 items)
+Processors  Time      Speedup  Efficiency
+1           0.000420
+2           0.000867  0.484    24.22%
+3           0.001439  0.292    9.73%
+4           0.002101  0.200    5.00%
+5           0.003523  0.119    2.38%
+
+6 orders  (1800 items)
+Processors  Time      Speedup  Efficiency
+1           0.000480
+2           0.001027  0.467    23.37%
+3           0.001909  0.251    8.38%
+4           0.002428  0.198    4.94%
+5           0.003854  0.125    2.49%
+6           0.004784  0.100    1.67%
+
+7 orders  (2100 items)
+Processors  Time      Speedup  Efficiency
+1           0.000574
+2           0.001026  0.559    27.97%
+3           0.002104  0.273    9.09%
+4           0.003164  0.181    4.54%
+5           0.004020  0.143    2.86%
+6           0.004277  0.134    2.24%
+7           0.005172  0.111    1.56%
+
+8 orders  (2400 items)
+Processors  Time      Speedup  Efficiency
+1           0.000640  
+2           0.001790  0.358    17.88%  
+3           0.002569  0.249    8.30%
+4           0.003054  0.210    5.24%
+5           0.003959  0.162    3.23%
+6           0.004494  0.142    2.37%
+7           0.005621  0.114    1.63%
+8           0.006548  0.098    1.22%
