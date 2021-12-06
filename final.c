@@ -26,7 +26,7 @@ int main(int argc, char* argv[]) {
     int orderSize = 0;
     int sum;
     int my_rank;
-    int comm_sz = 3;
+    int comm_sz = 8;
     omp_lock_t mutex;
     omp_init_lock(&mutex);
     srand(time(0));
@@ -35,7 +35,7 @@ int main(int argc, char* argv[]) {
         printf("****************************************************\n");
         printf("\tWelcome to John's and Allan's Shop\n");
         printf("****************************************************\n");
-        printf("\t\t1) Process an Order\n");
+        printf("\t\t1) Process All Orders\n");
         printf("\t\t2) View All Items\n");
         printf("\t\t3) Exit\n");
         printf("****************************************************\n");
@@ -181,13 +181,12 @@ void Print_Order(Order *orderArray, int orderSize, char orderName[256], int my_r
         // header
         if (!feof(fin)) {
             fscanf(fin, "Order %d: User: %s\n", &orderArray[orderSize].orderNum, orderArray[orderSize].User);
-            //printf("\tStarting Process %d: Order %d:, User: %s\n", my_rank, orderArray[orderSize].orderNum, orderArray[orderSize].User);
         }
 
         // order contents
         while (!feof(fin)) {
             if (fscanf(fin, "%s $%lf", orderArray[orderSize].item, &orderArray[orderSize].price) == 2) {
-                printf("\tItem %d: %s, Price: $%0.2f\n", (orderSize), orderArray[orderSize].item, orderArray[orderSize].price);
+                printf("\t%s, Price: $%0.2f\n", orderArray[orderSize].item, orderArray[orderSize].price);
                 orderSize++;
             }
         }
